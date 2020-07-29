@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todos/constants.dart';
 import 'package:todos/screens/HomeScreen.dart';
 
 void main() {
@@ -15,11 +14,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Color(
-          0xFF0A0C22,
-        ),
-        secondaryHeaderColor: kBottomColor,
+      theme: ThemeData(
+        accentColor: Color.fromARGB(0, 255, 255, 255),
         scaffoldBackgroundColor: Color(0xff0A0C22),
       ),
       home: HomeScreen(),
