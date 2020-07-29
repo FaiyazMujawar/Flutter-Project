@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todos/components/Card.dart';
 import 'package:todos/classes/Todo.dart';
-import 'package:todos/themes.dart';
+import 'package:todos/components/FloatingActionButton.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -50,11 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.add),
-        backgroundColor: kSecondaryColor,
-      ),
+      floatingActionButton: MyFloatingActionButton(),
     );
   }
 }

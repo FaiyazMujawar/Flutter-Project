@@ -38,7 +38,7 @@ class _TodoCardState extends State<TodoCard> {
     return Theme(
       data: ThemeData.dark(),
       child: Container(
-        padding: EdgeInsets.fromLTRB(padding, padding, padding, padding),
+        padding: EdgeInsets.all(padding),
         margin: EdgeInsets.only(top: 8.0),
         decoration: cardStyle,
         child: Row(
