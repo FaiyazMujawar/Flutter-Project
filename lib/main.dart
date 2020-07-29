@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todos/classes/TodoModel.dart';
+// import 'package:todos/classes/TodoModel.dart';
 import 'package:todos/screens/HomeScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => TodoModel(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
