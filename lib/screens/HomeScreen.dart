@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todos/Card.dart';
+import 'package:todos/components/Card.dart';
+import 'package:todos/classes/Todo.dart';
 import 'package:todos/themes.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,7 +9,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Widget> todos = [];
+  List todos = [
+    Todo(
+      todoText: "App design",
+      isCompleted: true,
+    ),
+    Todo(
+      todoText: "App development",
+      isCompleted: false,
+    ),
+    Todo(
+      todoText: "Documentation",
+      isCompleted: false,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,17 +30,21 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.025),
           child: Container(
-            child: Column(
-              children: <Widget>[
-                TodoCard(
-                  todoText: "Design App",
-                  isCompleted: false,
-                ),
-                TodoCard(
-                  todoText: "Design App",
-                  isCompleted: false,
-                ),
-              ],
+            child: ListView.builder(
+              itemCount: todos.length,
+              itemBuilder: (context, index) {
+                var todo = todos[index];
+                return TodoCard(
+                  todoText: todo.getTodoText(),
+                  isCompleted: todo.getIsCompleted(),
+                  action: () {
+                    print(index);
+                    setState(() {
+                      todos.remove(todo);
+                    });
+                  },
+                );
+              },
             ),
           ),
         ),
