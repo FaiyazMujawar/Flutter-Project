@@ -33,14 +33,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: ListView.builder(
               itemCount: todos.length,
               itemBuilder: (context, index) {
-                var todo = todos[index];
+                Todo todo = todos[index];
                 return TodoCard(
+                  key: ObjectKey(todo),
                   todoText: todo.getTodoText(),
                   isCompleted: todo.getIsCompleted(),
                   action: () {
                     print(index);
                     setState(() {
-                      todos.remove(todo);
+                      todos.removeAt(index);
                     });
                   },
                 );

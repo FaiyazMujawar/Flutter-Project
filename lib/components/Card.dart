@@ -75,10 +75,7 @@ class _TodoCardState extends State<TodoCard> {
               width: 15.0,
             ),
             GestureDetector(
-              onTap: () {
-                action();
-                // print("pressed");
-              },
+              onTap: action,
               child: Icon(
                 Icons.delete,
                 color: Colors.grey,
