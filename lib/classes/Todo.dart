@@ -1,17 +1,31 @@
-import 'package:flutter/material.dart';
-
 class Todo {
-  Key key;
-  String todoText;
-  bool isCompleted;
+  int id;
+  final String todoText;
+  final int isCompleted;
 
-  Todo({this.key, this.todoText, this.isCompleted});
+  Todo({this.id, this.todoText, this.isCompleted});
+
+  void setID(int id) {
+    this.id = id;
+  }
+
+  int getTodoId() {
+    return this.id;
+  }
 
   String getTodoText() {
     return this.todoText;
   }
 
-  bool getIsCompleted() {
+  int getIsCompleted() {
     return this.isCompleted;
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'todoText': todoText,
+      'isCompleted': isCompleted,
+    };
   }
 }

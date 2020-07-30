@@ -28,7 +28,7 @@ class _TodoCardState extends State<TodoCard> {
     cardStyle = isCompleted ? kInactiveCardStyle : kActiveCardStyle;
     checkboxColor = isCompleted ? Color(0xff1D1F33) : Colors.transparent;
     checkColor = isCompleted ? Colors.grey : Colors.transparent;
-    textStyle = isCompleted ? kActiveTextStyle : kInactiveTextStyle;
+    textStyle = isCompleted ? kInactiveTextStyle : kActiveTextStyle;
     super.initState();
   }
 
@@ -54,7 +54,7 @@ class _TodoCardState extends State<TodoCard> {
                       isCompleted ? Color(0xff1D1F33) : Colors.transparent;
                   checkColor = isCompleted ? Colors.grey : Colors.transparent;
                   textStyle =
-                      isCompleted ? kActiveTextStyle : kInactiveTextStyle;
+                      isCompleted ? kInactiveTextStyle : kActiveTextStyle;
                 });
               },
               activeColor: checkboxColor,

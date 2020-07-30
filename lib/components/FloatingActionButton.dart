@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todos/classes/Todo.dart';
 import 'package:todos/classes/TodoModel.dart';
+import 'package:todos/services/TodoService.dart';
 
 import '../themes.dart';
 
@@ -11,6 +13,14 @@ class MyFloatingActionButton extends StatefulWidget {
 
 class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
   String todoText = "";
+  TodoDB todoDB;
+  @override
+  void initState() {
+    todoDB = TodoDB();
+    todoDB.setDatabase();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TodoModel>(
@@ -42,6 +52,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
                             });
                           },
                           cursorColor: kSecondaryColor,
+                          keyboardType: TextInputType.multiline,
                           decoration: InputDecoration(
                             hintText: "I want to...",
                             hintStyle: kInactiveTextStyle,
@@ -65,8 +76,16 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(100))),
                               onPressed: () {
+                                Todo todo =
+                                    Todo(todoText: todoText, isCompleted: 0);
                                 Navigator.pop(context);
-                                todos.addTodo(todoText);
+                                todoDB.insertTodo(todo).then(
+                                  (id) {
+                                    print(todo.todoText);
+                                    todo.setID(id);
+                                    todos.addTodo(todo);
+                                  },
+                                );
                                 todoText = "";
                               },
                               child: Center(

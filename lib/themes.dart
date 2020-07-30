@@ -16,11 +16,11 @@ const kInactiveCardStyle = BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(10)),
 );
 
-const kInactiveTextStyle = TextStyle(
+const kActiveTextStyle = TextStyle(
   color: kTextColor,
 );
 
-const kActiveTextStyle = TextStyle(
+const kInactiveTextStyle = TextStyle(
   decoration: TextDecoration.lineThrough,
   decorationThickness: 2.5,
   color: Color(0xff33354b),
