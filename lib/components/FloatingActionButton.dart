@@ -55,7 +55,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
                           keyboardType: TextInputType.multiline,
                           decoration: InputDecoration(
                             hintText: "I want to...",
-                            hintStyle: kInactiveTextStyle,
+                            hintStyle: kActiveTextStyle,
                             filled: true,
                             fillColor: kInactiveCardColor,
                             border: OutlineInputBorder(
@@ -81,7 +81,6 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
                                 Navigator.pop(context);
                                 todoDB.insertTodo(todo).then(
                                   (id) {
-                                    print(todo.todoText);
                                     todo.setID(id);
                                     todos.addTodo(todo);
                                   },

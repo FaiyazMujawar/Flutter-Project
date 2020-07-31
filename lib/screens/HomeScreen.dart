@@ -56,10 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 : ListView.builder(
                     itemCount: todos.length,
                     itemBuilder: (context, index) {
-                      print("object");
                       Todo todo = todos.at(index);
                       return TodoCard(
                         key: ObjectKey(todo),
+                        id: todo.getTodoId(),
                         todoText: todo.getTodoText(),
                         isCompleted: todo.getIsCompleted() == 1,
                         action: () {

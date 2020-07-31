@@ -40,6 +40,16 @@ class TodoDB {
     );
   }
 
+  Future<void> setCompletedStatus(Todo todo) async {
+    final db = await _database;
+    await db.update(
+      'todos',
+      todo.toMap(),
+      where: "id = ?",
+      whereArgs: [todo.id],
+    );
+  }
+
   Future<void> deleteTodo(int id) async {
     final db = await _database;
     await db.delete(

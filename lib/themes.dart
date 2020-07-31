@@ -6,8 +6,8 @@ const kSecondaryColor = Color(0xffE84C56);
 
 const kTextColor = Color(0xff7F828E);
 
-const kActiveCardStyle = BoxDecoration(
-  color: kActiveCardColor,
+var kActiveCardStyle = BoxDecoration(
+  color: Colors.white.withOpacity(0.125),
   borderRadius: BorderRadius.all(Radius.circular(10)),
 );
 

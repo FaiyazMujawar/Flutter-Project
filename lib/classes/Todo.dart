@@ -1,12 +1,16 @@
 class Todo {
   int id;
   final String todoText;
-  final int isCompleted;
+  int isCompleted;
 
   Todo({this.id, this.todoText, this.isCompleted});
 
   void setID(int id) {
     this.id = id;
+  }
+
+  void setIsCompleted(int isCompleted) {
+    this.isCompleted = isCompleted;
   }
 
   int getTodoId() {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todos/classes/TodoModel.dart';
-// import 'package:todos/classes/TodoModel.dart';
+import "package:flutter/services.dart";
 import 'package:todos/screens/HomeScreen.dart';
 
 void main() {
@@ -21,6 +21,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MaterialApp(
       theme: ThemeData(
         accentColor: Color.fromARGB(0, 255, 255, 255),
